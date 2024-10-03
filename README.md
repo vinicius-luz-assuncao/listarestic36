@@ -1,5 +1,49 @@
 # Listarestic36
 
+Projeto: Lista de Compras de Supermercado
+Objetivo: Desenvolver uma aplicação web utilizando Angular que simule uma lista de compras. O projeto irá reforçar conceitos como componentes, manipulação de estados e interação com o DOM.
+
+Funcionalidades:
+
+Criação de Itens na Lista:
+
+O usuário poderá adicionar itens de forma rápida, a partir de um campo de texto. Os itens são adicionados diretamente em uma lista interativa.
+
+Edição:
+
+O usuário deverá poder editar o item da lista.
+
+Marcar como Comprado:
+
+O usuário poderá marcar itens como comprados, o que muda a aparência visual do item (ex: riscar o texto ou mudar de cor).
+
+Agrupamento por Status:
+
+A lista deverá separar os itens "Comprados" dos "Não Comprados", exibindo ambos em grupos distintos, mas ainda dentro da mesma página.
+
+Exclusão de Itens:
+
+O usuário poderá excluir itens da lista com um clique, utilizando um ícone de "lixeira" ao lado de cada item.
+
+Interface:
+
+A interface deve ser minimalista e responsiva.
+
+Requisitos Técnicos:
+
+Validação de Formulários: Validações básicas no formulário para garantir que o usuário não adicione itens vazios.
+
+Responsividade: A aplicação deve funcionar corretamente em dispositivos móveis, tablets e desktops.
+
+Entrega:
+
+O projeto final deverá ser entregue via github e o repositório deverá estar público.
+
+Código colado dentro do campo de resposta ou resposta enviada via link de outras plataformas (google drive, one drive, etc) não será aceito.
+Trabalhos entregue fora do prazo serão desconsiderados.
+
+Commits realizados após o prazo da atividade implicará em nota zero.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
 
 ## Development server
