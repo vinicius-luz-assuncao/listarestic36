@@ -2,7 +2,32 @@
   "products": [
     {
       "id": "1",
-      "title": "coca-cola"
+      "title": "coca-cola",
+      "amount": "2"
     }
+,
+    {
+        "id": "2",
+        "title": "maça",
+        "amount": "2"
+      }
+,
+    {
+        "id": "3",
+        "title": "nescau",
+        "amount": "2"
+      }
+,
+    {
+        "id": "4",
+        "title": "shampoo",
+        "amount": "2"
+      }
+,
+    {
+        "id": "5",
+        "title": "papel higienico",
+        "amount": "2"
+      }
   ]
 }
