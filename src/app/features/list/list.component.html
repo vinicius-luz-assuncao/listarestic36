@@ -1,17 +1,4 @@
 
     @for (product of products; track product.id) {
-    <div class="example-container"><mat-card appearance="outlined">
-            <mat-card-header >
-                <mat-card-title>{{product.title}}</mat-card-title>
-                <mat-card-content>quantidade: {{product.amount}}</mat-card-content>
-                <mat-card-actions >
-                    <button mat-button><mat-icon aria-hidden="false" aria-label="Editar"
-                            fontIcon="edit"></mat-icon></button>
-                    <button mat-button><mat-icon aria-hidden="false" aria-label="deletar"
-                            fontIcon="delete"></mat-icon></button>
-                </mat-card-actions>
-
-            </mat-card-header>
-        </mat-card>
-    </div>
+    <app-card [product]="product"></app-card>
     }
