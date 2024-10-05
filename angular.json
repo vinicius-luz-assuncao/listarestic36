@@ -71,6 +71,9 @@
               "buildTarget": "listarestic36:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "proxy.config.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
