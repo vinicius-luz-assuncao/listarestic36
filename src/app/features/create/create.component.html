@@ -1,34 +1,9 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
         <mat-label>Adicione itens</mat-label>
-        <input type="text" matInput placeholder="Frutas...">
+        <input type="text" formControlName="title" matInput placeholder="Frutas...">
+        <button mat-icon-button matSuffix aria-label="Adicione" type="submit"
+            [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></button>
     </mat-form-field>
+
 </form>
-<a mat-icon-button matSuffix aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
-
-<!-- formControlName="title" -->
-
-<p>create works!</p>
-<form [formGroup]="form">
-    <input type="text" formControlName="title" placeholder=" additem">
-</form>
-
-<br>
-<p>
-
-</p>
-
-<mat-icon matSuffix aria-label="Adicione" [routerLink]="['/create-product']">home</mat-icon>
-
-<br>
-<div class="action-container">
-    <a mat-icon-button aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Fill form field</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Hint</mat-hint>
-        </mat-form-field>
-    </p>
-</div>

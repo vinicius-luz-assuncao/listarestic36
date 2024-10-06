@@ -1,21 +1,34 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../shared/services/products.service';
+import { MatSnackBar} from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatIconModule, RouterLink],
+  imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    RouterLink,
+  ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss',
 })
 export class CreateComponent {
+  productsService = inject(ProductsService);
 
-productsService = inject(ProductsService);
+  matSnackBar = inject(MatSnackBar);
 
   form = new FormGroup({
     title: new FormControl<string>('', {
@@ -23,12 +36,14 @@ productsService = inject(ProductsService);
       validators: Validators.required,
     }),
   });
-onSubmit() {
-  this.productsService.post({
-    title: this.form.controls.title.value,
-    amount: 0
-  })
-  .subscribe(() => { alert('sucesso!')});
-}
-
+  onSubmit() {
+    this.productsService
+      .post({
+        title: this.form.controls['title'].value, 
+        amount: 0
+      })
+      .subscribe(() => {
+        alert('sucesso!');
+      });
+  }
 }
