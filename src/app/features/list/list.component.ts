@@ -5,12 +5,13 @@ import { CardComponent } from './components/card/card.component';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CardComponent, RouterLink, MatButtonModule, MatIcon],
+  imports: [CardComponent, RouterLink, MatButtonModule, MatIcon, MatFormFieldModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
