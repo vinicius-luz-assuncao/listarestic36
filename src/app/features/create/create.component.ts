@@ -39,7 +39,7 @@ export class CreateComponent {
   onSubmit() {
     this.productsService
       .post({
-        title: this.form.controls['title'].value, 
+        title: this.form.controls.title.value, 
         amount: 0
       })
       .subscribe(() => {
