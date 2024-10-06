@@ -1,19 +1,24 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-        <mat-label>Adicione itens</mat-label>
-        <input type="text" formControlName="title" matInput placeholder="Frutas...">
-        <button mat-icon-button matSuffix aria-label="Adicione" type="submit"
-            [routerLink]="['/create-product']"><mat-icon>shopping_cart_checkout</mat-icon></button>
-    </mat-form-field>
-
-    <!-- Button add amout / fica pra depois-->
-
-
-    <mat-form-field id="quantforms" appearance="fill">
-        <mat-label>Quantos</mat-label>
-        <input type="text" formControlName="amount" matInput placeholder="Frutas...">
-        <button mat-icon-button matSuffix aria-label="Adicione" type="submit"
-            [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></button>
-    </mat-form-field>
-
-</form>
+    <div>
+      <label for="id">ID:</label>
+      <input id="id" formControlName="id" type="number" readonly />
+    </div>
+  
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title" type="text" />
+      <div *ngIf="form.controls['title'].invalid && form.controls['title'].touched">
+        <small>Title is required</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="amount">Amount:</label>
+      <input id="amount" formControlName="amount" type="number" />
+      <div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched">
+        <small>Amount is required</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  

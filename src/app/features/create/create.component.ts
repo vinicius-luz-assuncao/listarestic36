@@ -31,13 +31,25 @@ export class CreateComponent {
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
   
-
   form = new FormGroup({
+    id: new FormControl<number | null>(null), 
     title: new FormControl<string>('', {
       nonNullable: true,
       validators: Validators.required,
     }),
+    amount: new FormControl<number>(0, {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
   });
+  
+  
+  // form = new FormGroup({
+  //   title: new FormControl<string>('', {
+  //     nonNullable: true,
+  //     validators: Validators.required,
+  //   }),
+  // });
 
   onSubmit() {
     
