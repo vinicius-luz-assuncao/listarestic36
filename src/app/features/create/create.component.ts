@@ -45,12 +45,8 @@ export class CreateComponent {
     .post({
       title: this.form.controls.title.value,
       amount: 0,
-    })
-    this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok', {
-      duration: 2000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    });
+    }),
+    this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
     // pretendo utilizar na construção de outras etapas
     // .subscribe(() => {
     //     alert('sucesso!');
