@@ -61,7 +61,7 @@ export class CreateComponent implements OnInit {
         this.matSnackBar.open('🛒 Item adicionado', 'ok');
         this.router.navigateByUrl('/');
       })};
-  }
+  };
 
 // refatorar
 
