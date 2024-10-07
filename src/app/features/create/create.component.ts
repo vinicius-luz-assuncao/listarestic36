@@ -11,16 +11,21 @@ import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { ProductsService } from '../../shared/services/products.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create',
   standalone: true,
   imports: [
+    MatButtonModule,
+    MatDividerModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    RouterLink,
+    RouterLink, CommonModule,
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss',
@@ -38,17 +43,23 @@ export class CreateComponent {
     }),
     amount: new FormControl<number>(0, {
       nonNullable: true,
-      validators: Validators.required,
+      validators: [Validators.required, Validators.min(1)],
     }),
+    
   });
+ 
 
   onSubmit() {
-    this.productsService.post({
-      title: this.form.controls.title.value,
-      amount: 0,
-    }).subscribe(response => {
-      this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
-      this.router.navigateByUrl('/');
-    });
+    if (this.form.valid) {
+    
+    this.productsService
+      .post({
+        title: this.form.controls['title'].value,
+      amount: this.form.controls['amount'].value
+      })
+      .subscribe((response) => {
+        this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
+        this.router.navigateByUrl('/');
+      })};
   }
 }

@@ -1,9 +1,7 @@
-
 mat-card-header.mat-mdc-card-header {
   padding: 4px 16px 4px 16px;
   justify-content: space-evenly;
 }
-
 
 .mat-mdc-button > .mat-icon {
   margin: 0px 8px 0px 8px;
@@ -14,5 +12,8 @@ mat-card-content.mat-mdc-card-content {
 }
 
 mat-card {
-margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+.item {
+  text-transform: capitalize;
 }
