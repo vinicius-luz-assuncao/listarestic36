@@ -8,9 +8,9 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../shared/services/products.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar} from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-create',
@@ -28,27 +28,50 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CreateComponent {
   productsService = inject(ProductsService);
   matSnackBar = inject(MatSnackBar);
-  router = inject(Router);
+
+
+
+
+
+
 
   form = new FormGroup({
-    id: new FormControl<number | null>(null),
     title: new FormControl<string>('', {
-      nonNullable: true,
-      validators: Validators.required,
-    }),
-    amount: new FormControl<number>(0, {
       nonNullable: true,
       validators: Validators.required,
     }),
   });
 
   onSubmit() {
+    this.productsService.post({title: this.form.controls['title'].value, 
+        amount: 0
+      })
+      .subscribe(() => {
+        alert('sucesso!');
+      });
+  }
+}
+
+onSubmit() {
     this.productsService.post({
       title: this.form.controls.title.value,
       amount: 0,
     }).subscribe(response => {
       this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
       this.router.navigateByUrl('/');
+    }, error => {
+      // Lidar com o erro, se necessário
+      console.error('Erro:', error);
     });
   }
-}
+  
+  onSubmit() {
+
+    this.productsService.post({title: this.form.controls.title.value,
+      amount: 0,
+    })
+      this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
+    
+    this.router.navigateByUrl('/');
+    
+  }
