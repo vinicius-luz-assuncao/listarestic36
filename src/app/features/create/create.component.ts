@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -30,7 +30,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss',
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
   productsService = inject(ProductsService);
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
@@ -58,8 +58,26 @@ export class CreateComponent {
       amount: this.form.controls['amount'].value
       })
       .subscribe((response) => {
-        this.matSnackBar.open('acrescentar icone / Item adicionado', 'ok');
+        this.matSnackBar.open('🛒 Item adicionado', 'ok');
         this.router.navigateByUrl('/');
       })};
   }
+
+// refatorar
+
+foodAndDrinkEmojis = ["🍕", "🍔", "🍟", "🍣", "🍩", "🍪", "🍫", "🍿", "🍷", "🍸"];
+  emoji: string = '';
+
+  ngOnInit() {
+    this.setRandomEmoji();
+  }
+
+  setRandomEmoji(): void {
+    const emojis = this.foodAndDrinkEmojis;
+    const randomIndex = Math.floor(Math.random() * emojis.length);
+    this.emoji = emojis[randomIndex];
+  }
+
+
+
 }

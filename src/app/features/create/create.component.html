@@ -16,9 +16,9 @@
     </button>
 </form>
 
-<div *ngIf="form.controls['title'].invalid && form.controls['title'].touched">
-    <small>Title is required</small>
+<div class="snackbar-required" *ngIf="form.controls['title'].invalid && form.controls['title'].touched">
+    <small>🖋️ Coloque o nome do item! {{ emoji }} </small>
 </div>
-<div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched">
-    <small>Amount is required</small>
+<div class="snackbar-required amount-required" *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched">
+    <small>➕ Quantidade nescessária</small>
 </div>
