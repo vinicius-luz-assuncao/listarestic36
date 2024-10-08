@@ -1,6 +1,5 @@
 import {
   ActivatedRouteSnapshot,
-  RouterStateSnapshot,
   Routes,
 } from '@angular/router';
 import { ListComponent } from './features/list/list.component';
