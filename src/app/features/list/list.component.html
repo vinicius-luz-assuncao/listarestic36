@@ -2,5 +2,5 @@
     <a mat-icon-button aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
 </div>
 @for (product of products; track product.id) {
-<app-card [product]="product" (edit)="onEdit()"></app-card>
+<app-card [product]="product" (edit)="onEdit(product)"></app-card>
 }

@@ -1,1 +1,26 @@
-<p>edit works!</p>
+<p> edit works!</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field hideRequiredMarker appearance="fill">
+        <mat-label>Adicione itens</mat-label>
+        <input formControlName="title" matInput placeholder="Ex. Frutas" type="text">
+        <mat-icon matSuffix>add_shopping_cart</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker id="quantforms" appearance="fill">
+        <mat-label>Unidades</mat-label>
+        <input formControlName="amount" matInput type="number" min="1">
+        <mat-icon matSuffix>add_circle</mat-icon>
+    </mat-form-field>
+
+    <button mat-fab aria-label="Adicione" type="submit">
+        <mat-icon>add_task</mat-icon>
+    </button>
+</form>
+
+<div class="snackbar-required" *ngIf="form.controls['title'].invalid && form.controls['title'].touched">
+    <small>🖋️ Coloque o nome do item! {{ emoji }} </small>
+</div>
+<div class="snackbar-required amount-required" *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched">
+    <small>➕ Quantidade nescessária</small>
+</div>

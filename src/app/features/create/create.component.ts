@@ -12,7 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ProductsService } from '../../shared/services/products.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -25,11 +25,13 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    RouterLink, CommonModule,
+    RouterLink,
+    CommonModule,
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss',
 })
+
 export class CreateComponent implements OnInit {
   productsService = inject(ProductsService);
   matSnackBar = inject(MatSnackBar);
@@ -45,27 +47,87 @@ export class CreateComponent implements OnInit {
       nonNullable: true,
       validators: [Validators.required, Validators.min(1)],
     }),
-    
   });
- 
 
   onSubmit() {
     if (this.form.valid) {
-    
-    this.productsService
-      .post({
-        title: this.form.controls['title'].value,
-      amount: this.form.controls['amount'].value
-      })
-      .subscribe((response) => {
-        this.matSnackBar.open('🛒 Item adicionado', 'ok');
-        this.router.navigateByUrl('/');
-      })};
-  };
+      this.productsService
+        .post({
+          title: this.form.controls['title'].value,
+          amount: this.form.controls['amount'].value,
+        })
+        .subscribe((response) => {
+          this.matSnackBar.open('🛒 Item adicionado', 'ok');
+          this.router.navigateByUrl('/');
+        });
+    }
+  }
 
-// refatorar
+  // refatorar
 
-foodAndDrinkEmojis = ["🍕", "🍔", "🍟", "🍣", "🍩", "🍪", "🍫", "🍿", "🍷", "🍸"];
+  foodAndDrinkEmojis = [
+    '🍎',
+    '🍏',
+    '🍌',
+    '🍇',
+    '🍉',
+    '🍓',
+    '🍈',
+    '🍒',
+    '🍑',
+    '🍍',
+    '🥭',
+    '🥥',
+    '🥝',
+    '🥦',
+    '🥬',
+    '🥒',
+    '🌽',
+    '🥕',
+    '🌶️',
+    '🥔',
+    '🍠',
+    '🥑',
+    '🍆',
+    '🧄',
+    '🧅',
+    '🍞',
+    '🥖',
+    '🥯',
+    '🥨',
+    '🧀',
+    '🍗',
+    '🥩',
+    '🍖',
+    '🍔',
+    '🍟',
+    '🍕',
+    '🌭',
+    '🍣',
+    '🍱',
+    '🍤',
+    '🥟',
+    '🍜',
+    '🍲',
+    '🍝',
+    '🍛',
+    '🥫',
+    '🍿',
+    '🍩',
+    '🍪',
+    '🧃',
+    '🥤',
+    '🍼',
+    '🍶',
+    '🍷',
+    '🍺',
+    '🍻',
+    '🥂',
+    '🍸',
+    '🍹',
+    '☕',
+    '🫖',
+  ];
   emoji: string = '';
 
   ngOnInit() {
@@ -77,7 +139,4 @@ foodAndDrinkEmojis = ["🍕", "🍔", "🍟", "🍣", "🍩", "🍪", "🍫", "�
     const randomIndex = Math.floor(Math.random() * emojis.length);
     this.emoji = emojis[randomIndex];
   }
-
-
-
 }
