@@ -23,10 +23,10 @@ export const routes: Routes = [
   {
     path: 'edit-product/:id',
     resolve: {
-      product: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+      product: (route: ActivatedRouteSnapshot) => {
         const productsService = inject(ProductsService);
 
-        productsService.get(route.paramMap.get('id') as string)
+       return productsService.get(route.paramMap.get('id') as string)
       },
     },
     loadComponent: () =>

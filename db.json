@@ -1,29 +1,9 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "coca-cola",
-      "amount": "2"
-    },
-    {
-      "id": "2",
-      "title": "banana",
-      "amount": "2"
-    },
-    {
-      "id": "3",
-      "title": "nescau",
-      "amount": "2"
-    },
-    {
-      "id": "4fe3",
-      "title": "1",
-      "amount": 2
-    },
-    {
-      "id": "f4b2",
-      "title": "item 01",
-      "amount": 2
+      "id": "6698",
+      "title": "feijão",
+      "amount": 1
     }
   ]
 }
