@@ -15,7 +15,24 @@ export class CardComponent {
   product = input.required<Product>();
 
   @Output() edit = new EventEmitter();
+  @Output() delete = new EventEmitter<void>();  
+  
+  
 
 productTitle = computed(() => this.product().title);
-productAmount = computed(() => this.product().title);
+productAmount = computed(() => this.product().amount);
+
+
+onEdit() {
+  this.edit.emit();
 }
+
+onDelete() {
+  this.delete.emit(); 
+
+
+}
+
+
+}
+
