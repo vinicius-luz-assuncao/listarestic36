@@ -9,30 +9,23 @@ import { MatIcon } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDrag,
+  CdkDropList,
+  CdkDropListGroup,
+} from '@angular/cdk/drag-drop';
 
-@Component({
-  selector: 'app-confirmation-dialog',
-  template: `<h2 mat-dialog-title>Delete? </h2>
-  <mat-dialog-content>
-    Você quer deletar o item?
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="false">cancelar</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>sim</button>
-  </mat-dialog-actions>`,
-  standalone: true,
-  imports: [MatButtonModule, MatDialogModule],
-})
-export class ConfirmationDialogComponent {
-  
-}
+
 
 
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CardComponent, RouterLink, MatButtonModule, MatIcon, MatFormFieldModule, CommonModule],
+  imports: [CardComponent, RouterLink, MatButtonModule, MatIcon, MatFormFieldModule, CommonModule, CdkDropList, CdkDrag, CdkDropListGroup],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
@@ -71,4 +64,27 @@ productTitle = computed(() => this.product().title);
      }
     
     });  
-}}
+}
+
+
+todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+
+  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+  }
+
+
+
+
+}
