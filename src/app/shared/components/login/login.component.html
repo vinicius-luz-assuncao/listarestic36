@@ -1,0 +1,15 @@
+<header> 
+    <div>
+        <div class="nav-item" *ngIf="auth.isAuthenticated$ | async">
+            <button class="btn btn-link p-0" style="min-width: unset" id="qsLogoutBtn" (click)="logout()">
+                Log out
+            </button>
+        </div>
+        <div *ngIf="(auth.isAuthenticated$ | async) === false"><button id="qsLoginBtn"
+                class="btn btn-primary btn-margin" (click)="login()">
+                Log in
+            </button>
+        </div>
+    </div>
+    <app-userprofile></app-userprofile>
+</header>

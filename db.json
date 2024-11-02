@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "title": "maça",
-      "amount": 10,
+      "title": "queijo",
+      "amount": 5,
       "id": "3be2"
     },
     {
@@ -11,8 +11,8 @@
       "amount": 2
     },
     {
-      "id": "7b54",
-      "title": "queijo",
+      "id": "6e88",
+      "title": "ovos",
       "amount": 1
     }
   ]
