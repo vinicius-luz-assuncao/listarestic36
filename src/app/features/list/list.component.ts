@@ -1,4 +1,4 @@
-import { Component, inject, TrackByFunction } from '@angular/core';
+import { Component, computed, inject, input, TrackByFunction } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.interface';
 import { CardComponent } from './components/card/card.component';
@@ -8,21 +8,24 @@ import { MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-confirmation-dialog',
-  template: `<h2 mat-dialog-title>Delete file</h2>
+  template: `<h2 mat-dialog-title>Delete? </h2>
   <mat-dialog-content>
-    Would you like to delete cat.jpeg?
+    Você quer deletar o item?
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close>No</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+    <button mat-button [mat-dialog-close]="false">cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>sim</button>
   </mat-dialog-actions>`,
   standalone: true,
   imports: [MatButtonModule, MatDialogModule],
 })
-export class ConfirmationDialogComponent {}
+export class ConfirmationDialogComponent {
+  
+}
 
 
 
@@ -35,11 +38,14 @@ export class ConfirmationDialogComponent {}
 })
 export class ListComponent {
   products: Product[] = [];
+  product = input.required<Product>();
 
   productsService = inject(ProductsService);
   router = inject(Router);
 trackByProductId: TrackByFunction<Product> | undefined;
 matDialog = inject(MatDialog);
+matSnackBar = inject(MatSnackBar);
+productTitle = computed(() => this.product().title);
   
 
   ngOnInit() {
@@ -54,9 +60,15 @@ matDialog = inject(MatDialog);
   onDelete(product: Product) {
     this.matDialog.open(ConfirmationDialogComponent)
     .afterClosed()
-    .subscribe((data) => {console.log('afterclosed', data);})  
+    .subscribe((result) => {
+      if (result) {
+      this.productsService.delete(product.id).subscribe(() => {
+        this.products = this.products.filter(p => p.id !== product.id);
+        this.matSnackBar.open('🛒 Item deletado', 'ok');
+      });  
+     } else {
+      this.matSnackBar.open('🛒 Item mantido', 'ok');
+     }
     
-    this.productsService.delete(product.id).subscribe(() => {
-      this.products = this.products.filter(p => p.id !== product.id);
     });  
 }}
