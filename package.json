@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@auth0/auth0-angular": "^2.2.3",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "guid-typescript": "^1.0.9",

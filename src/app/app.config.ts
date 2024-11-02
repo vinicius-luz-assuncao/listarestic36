@@ -12,6 +12,8 @@ import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatSnackBarConfig,
 } from '@angular/material/snack-bar';
+import { provideAuth0 } from '@auth0/auth0-angular';
+
 
 const SNACK_BAR_CONFIG: ValueProvider = {
   provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
@@ -28,6 +30,20 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
+    provideAuth0({
+
+      domain: 'dev-e4a4hfzm3ojdyb37.us.auth0.com',
+     
+      clientId: 'A6oPj7VhrjZo3ct5qcugUd4eckWn4aDR',
+     
+      authorizationParams: {
+     
+      redirect_uri: window.location.origin,
+     
+      },}),
+
+      
+     
     SNACK_BAR_CONFIG
   ],
 };
