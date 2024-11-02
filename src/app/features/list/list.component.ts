@@ -19,6 +19,22 @@ import {
 } from '@angular/cdk/drag-drop';
 
 
+@Component({
+  selector: 'app-confirmation-dialog',
+  template: `<h2 mat-dialog-title>Delete? </h2>
+  <mat-dialog-content>
+    Você quer deletar o item?
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>sim</button>
+  </mat-dialog-actions>`,
+  standalone: true,
+  imports: [MatButtonModule, MatDialogModule],
+})
+export class ConfirmationDialogComponent {
+  
+}
 
 
 
