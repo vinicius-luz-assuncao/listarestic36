@@ -11,8 +11,14 @@ import { userprofileGuard } from './guards/userprofile.guard';
 import { authGuardFn } from '@auth0/auth0-angular';
 
 export const routes: Routes = [
+  
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
     component: ListComponent,
   },
   {
