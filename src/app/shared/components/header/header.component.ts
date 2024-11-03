@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { UserprofileComponent } from "../userprofile/userprofile.component";
 
 export interface Tile {
   color: string;
@@ -14,7 +15,7 @@ export interface Tile {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatGridListModule],
+  imports: [MatToolbarModule, MatGridListModule, UserprofileComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

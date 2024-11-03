@@ -6,6 +6,9 @@ import { ListComponent } from './features/list/list.component';
 
 import { ProductsService } from './shared/services/products.service';
 import { inject } from '@angular/core';
+import { UserprofileComponent } from './shared/components/userprofile/userprofile.component';
+import { userprofileGuard } from './guards/userprofile.guard';
+import { authGuardFn } from '@auth0/auth0-angular';
 
 export const routes: Routes = [
   {
@@ -30,5 +33,15 @@ export const routes: Routes = [
     },
     loadComponent: () =>
       import('./features/edit/edit.component').then((m) => m.EditComponent),
+  },
+
+  {
+
+    path: 'userprofile',
+ 
+    component: UserprofileComponent,
+ 
+    canActivate: [userprofileGuard, authGuardFn],
+ 
   },
 ];
