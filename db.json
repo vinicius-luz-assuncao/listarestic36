@@ -1,19 +1,29 @@
 {
-  "products": [
+  "users": [
     {
-      "title": "queijo",
-      "amount": 5,
-      "id": "3be2"
+      "email": "user1@example.com",
+      "name": "User One",
+      "products": [
+        { "id": "3be2", "title": "queijo", "amount": 5 },
+        { "id": "0fbc", "title": "uvas", "amount": 2 },
+        { "id": "6e88", "title": "ovos", "amount": 1 }
+      ]
     },
     {
-      "id": "0fbc",
-      "title": "uvas",
-      "amount": 2
-    },
-    {
-      "id": "6e88",
-      "title": "ovos",
-      "amount": 1
+      "email": "user2@example.com",
+      "name": "User Two",
+      "products": [
+        { "id": "1a2b", "title": "leite", "amount": 3 },
+        { "id": "3c4d", "title": "pão", "amount": 4 }
+      ]
     }
-  ]
+  ],
+  "products": [
+        { "id": "3be2", "title": "queijo", "amount": 5 },
+        { "id": "0fbc", "title": "uvas", "amount": 2 },
+        { "id": "6e88", "title": "ovos", "amount": 1 }
+      ]
+
+
 }
+
