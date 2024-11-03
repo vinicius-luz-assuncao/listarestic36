@@ -38,9 +38,17 @@ export const appConfig: ApplicationConfig = {
      
       authorizationParams: {
      
+         audience: 'https://dev-e4a4hfzm3ojdyb37.us.auth0.com/api/v2/',
+
+         scope: 'openid profile email offline_access',
+
       redirect_uri: window.location.origin,
      
-      },}),
+      },
+      useRefreshTokens: true,
+
+      cacheLocation: 'localstorage',
+    }),
 
       
      
