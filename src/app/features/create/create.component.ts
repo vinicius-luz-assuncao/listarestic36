@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-create',
@@ -36,6 +37,7 @@ export class CreateComponent implements OnInit {
   productsService = inject(ProductsService);
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
+  authService = inject(AuthService);
 
   form = new FormGroup({
     id: new FormControl<number | null>(null),
@@ -51,15 +53,20 @@ export class CreateComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.productsService
-        .post({
-          title: this.form.controls['title'].value,
-          amount: this.form.controls['amount'].value,
-        })
-        .subscribe((response) => {
-          this.matSnackBar.open('🛒 Item adicionado', 'ok');
-          this.router.navigateByUrl('/');
-        });
+      this.authService.user$.subscribe((user) => {
+        if (user?.email) {
+          this.productsService
+            .post({
+              title: this.form.controls['title'].value,
+              amount: this.form.controls['amount'].value,
+              done: false,
+              userEmail: user.email})
+            .subscribe(() => {
+              this.matSnackBar.open('🛒 Item adicionado', 'ok');
+              this.router.navigateByUrl('/');
+            });
+        }
+      });
     }
   }
 

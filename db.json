@@ -1,29 +1,50 @@
 {
   "users": [
     {
-      "email": "user1@example.com",
-      "name": "User One",
+      "userId": "auth0|12345",
+      "userEmail": "usuario@exemplo.com",
+      "userName": "Nome do Usuário",
       "products": [
-        { "id": "3be2", "title": "queijo", "amount": 5 },
-        { "id": "0fbc", "title": "uvas", "amount": 2 },
-        { "id": "6e88", "title": "ovos", "amount": 1 }
+        "1",
+        "2"
       ]
     },
     {
-      "email": "user2@example.com",
-      "name": "User Two",
-      "products": [
-        { "id": "1a2b", "title": "leite", "amount": 3 },
-        { "id": "3c4d", "title": "pão", "amount": 4 }
-      ]
+      "id": "f350",
+      "userId": "google-oauth2|106067380469102875469",
+      "userEmail": "vinicius.luz.foto@gmail.com",
+      "userName": "Vinicius Luz",
+      "products": []
     }
   ],
   "products": [
-        { "id": "3be2", "title": "queijo", "amount": 5 },
-        { "id": "0fbc", "title": "uvas", "amount": 2 },
-        { "id": "6e88", "title": "ovos", "amount": 1 }
-      ]
-
-
+    {
+      "id": "1",
+      "title": "Produto 1",
+      "amount": 1,
+      "userEmail": "vinicius.luz.foto@gmail.com",
+      "done": false
+    },
+    {
+      "id": "dead",
+      "title": "amor",
+      "amount": 2,
+      "done": false,
+      "userEmail": ""
+    },
+    {
+      "id": "541c",
+      "title": "ahh",
+      "amount": 2,
+      "done": false,
+      "userEmail": ""
+    },
+    {
+      "id": "afd0",
+      "title": "agora vai",
+      "amount": 2,
+      "done": false,
+      "userEmail": "vinicius.luz.foto@gmail.com"
+    }
+  ]
 }
-

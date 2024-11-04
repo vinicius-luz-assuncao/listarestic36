@@ -57,6 +57,9 @@ export class EditComponent {
         .put(this.product.id, {
           title: this.form.controls['title'].value,
           amount: this.form.controls['amount'].value,
+
+          done: false,
+          userEmail: ''
         })
         .subscribe(() => {
           this.matSnackBar.open('🛒 Item editado com sucesso!', 'ok');

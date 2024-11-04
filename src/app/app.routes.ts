@@ -1,21 +1,17 @@
-import {
-  ActivatedRouteSnapshot,
-  Routes,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterOutlet, Routes } from '@angular/router';
 import { ListComponent } from './features/list/list.component';
 
 import { ProductsService } from './shared/services/products.service';
 import { inject } from '@angular/core';
 import { UserprofileComponent } from './shared/components/userprofile/userprofile.component';
 import { userprofileGuard } from './guards/userprofile.guard';
-import { authGuardFn } from '@auth0/auth0-angular';
+import { AuthGuard, authGuardFn } from '@auth0/auth0-angular';
 
 export const routes: Routes = [
-  
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: 'home',
   },
   {
     path: 'home',
@@ -34,7 +30,7 @@ export const routes: Routes = [
       product: (route: ActivatedRouteSnapshot) => {
         const productsService = inject(ProductsService);
 
-       return productsService.get(route.paramMap.get('id') as string)
+        return productsService.get(route.paramMap.get('id') as string);
       },
     },
     loadComponent: () =>
@@ -42,12 +38,11 @@ export const routes: Routes = [
   },
 
   {
-
     path: 'userprofile',
- 
+
     component: UserprofileComponent,
- 
+
     canActivate: [userprofileGuard, authGuardFn],
- 
   },
+  { path: 'list', component: RouterOutlet,  canActivate: [AuthGuard] },
 ];

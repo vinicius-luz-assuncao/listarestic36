@@ -29,9 +29,8 @@ onEdit() {
 
 onDelete() {
   this.delete.emit(); 
-
-
 }
+
 
 
 }
