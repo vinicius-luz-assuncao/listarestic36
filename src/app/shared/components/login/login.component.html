@@ -1,15 +1,13 @@
-<header> 
-    <div>
+    <mat-toolbar class="navbar">
         <div class="nav-item" *ngIf="auth.isAuthenticated$ | async">
-            <button class="btn btn-link p-0" style="min-width: unset" id="qsLogoutBtn" (click)="logout()">
+            <button mat-raised-button class="btn btn-link p-0" style="min-width: unset" id="qsLogoutBtn" (click)="logout()">
                 Log out
             </button>
         </div>
-        <div *ngIf="(auth.isAuthenticated$ | async) === false"><button id="qsLoginBtn"
+        <div *ngIf="(auth.isAuthenticated$ | async) === false"><button mat-raised-button id="qsLoginBtn"
                 class="btn btn-primary btn-margin" (click)="login()">
                 Log in
             </button>
         </div>
-    </div>
+    </mat-toolbar>
     <app-userprofile></app-userprofile>
-</header>

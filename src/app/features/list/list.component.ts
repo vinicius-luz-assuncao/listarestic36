@@ -80,12 +80,14 @@ export class ListComponent {
   // }
 
   ngOnInit() {
-    
+    this.productsService.getAll().subscribe((data) => {
+      this.products = data;
+    });
+  
     this.authService.user$.subscribe(user => {
       if (user?.sub && user.email && user.name) {
         this.userEmail = user.email; 
         this.usersService.getOrCreateUser(user.sub, user.email, user.name).subscribe(dbUser => {
-          console.log("ahhhhhh!", dbUser);
           this.productsService.getAllByUser(dbUser['userEmail']).subscribe((products: Product[]) => {
             this.products = products;
           });

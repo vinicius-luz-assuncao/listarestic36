@@ -7,13 +7,21 @@
       "products": [
         "1",
         "2"
-      ]
+      ],
+      "id": "20d8"
     },
     {
       "id": "f350",
       "userId": "google-oauth2|106067380469102875469",
       "userEmail": "vinicius.luz.foto@gmail.com",
       "userName": "Vinicius Luz",
+      "products": []
+    },
+    {
+      "id": "21c0",
+      "userId": "auth0|6728555b89f38056341a18eb",
+      "userEmail": "vinicius.luz.wow@gmail.com",
+      "userName": "vinicius.luz.wow@gmail.com",
       "products": []
     }
   ],
@@ -43,6 +51,20 @@
       "id": "afd0",
       "title": "agora vai",
       "amount": 2,
+      "done": false,
+      "userEmail": "vinicius.luz.foto@gmail.com"
+    },
+    {
+      "id": "214a",
+      "title": "maçã",
+      "amount": 3,
+      "done": false,
+      "userEmail": "vinicius.luz.wow@gmail.com"
+    },
+    {
+      "id": "84b5",
+      "title": "user 01",
+      "amount": 20,
       "done": false,
       "userEmail": "vinicius.luz.foto@gmail.com"
     }

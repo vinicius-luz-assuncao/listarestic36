@@ -29,12 +29,12 @@ export class ProductsService {
 // fim da rota privada, refatorar 
 
   httpClient = inject(HttpClient);
-    putProduct: any;
+    
 
-  getAll() {
-    return this.httpClient.get<Product[]>('api/products');
-      
+  getAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
   }
+  
   get(id: string) {
     return this.httpClient.get<Product>(`/api/products/${id}`);
       
