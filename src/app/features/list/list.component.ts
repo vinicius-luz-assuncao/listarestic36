@@ -20,6 +20,8 @@ import {
 import { AuthService } from '@auth0/auth0-angular';
 import { UsersService } from '../../shared/services/user.service';
 
+
+
 @Component({
   selector: 'app-confirmation-dialog',
   template: `<h2 mat-dialog-title>Delete?</h2>
@@ -51,6 +53,8 @@ export class ConfirmationDialogComponent {}
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
+  
+  
   products: Product[] = [];
   product = input.required<Product>();
   userEmail: string = '';
@@ -61,22 +65,14 @@ export class ListComponent {
     private productsService: ProductsService,
     private router: Router,
     private matDialog: MatDialog,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    public auth: AuthService,
   ) {}
-
-  //refatorado
-  // ngOnInit() {
-  //   this.productsService.getAll().subscribe((products) => {
-  //     this.products = products;
-  //   });
-  // }
 
   ngOnInit() {
     this.productsService.getAllByUser('userEmail').subscribe((data) => {
       this.products = data;
-    });
-
-    this.authService.user$.subscribe((user) => {
+    });    this.authService.user$.subscribe((user) => {
       if (user?.sub && user.email && user.name) {
         this.userEmail = user.email;
         this.usersService

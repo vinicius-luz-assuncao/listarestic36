@@ -10,20 +10,11 @@ import { AuthService } from '@auth0/auth0-angular';
   providedIn: 'root',
 })
 export class ProductsService {
-  
-  
-  
-  
-  // rota esta privada
-  // private apiUrl = 'api/products';
+       
   private apiUrl = 'http://localhost:3000/products';
-  
+
   constructor(private http: HttpClient, private auth: AuthService) {}
-  
-  // getAllByUser(userId: string): Observable<Product[]> {
-  //   return this.http.get<Product[]>(`${this.apiUrl}/products?userId=${userId}`);
-  // }
-getAllByUser(userEmail: string): Observable<Product[]> {
+  getAllByUser(userEmail: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}?userEmail=${userEmail}`);
   }
 
@@ -32,15 +23,10 @@ getAllByUser(userEmail: string): Observable<Product[]> {
       switchMap(user => this.http.get<Product[]>(`${this.apiUrl}?userId=${user?.sub}`))
     );
   }
-// fim da rota privada, refatorar 
 
   httpClient = inject(HttpClient);
     
-
-  // getAll(): Observable<Product[]> {
-  //   return this.http.get<Product[]>(this.apiUrl);
-  // }
-  
+ 
   get(id: string) {
     return this.httpClient.get<Product>(`/api/products/${id}`);
       

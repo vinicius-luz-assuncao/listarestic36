@@ -26,19 +26,12 @@
     }
   ],
   "products": [
-        {
+    {
       "id": "214a",
       "title": "maçã",
       "amount": 3,
       "done": false,
       "userEmail": "vinicius.luz.wow@gmail.com"
-    },
-    {
-      "id": "1e9b",
-      "title": "etc",
-      "amount": 2,
-      "done": false,
-      "userEmail": "vinicius.luz.foto@gmail.com"
     },
     {
       "id": "4662",
@@ -53,6 +46,13 @@
       "amount": 2,
       "done": false,
       "userEmail": "vinicius.luz.wow@gmail.com"
+    },
+    {
+      "id": "4c76",
+      "title": "item 01",
+      "amount": 20,
+      "done": false,
+      "userEmail": "vinicius.luz.foto@gmail.com"
     }
   ]
 }
