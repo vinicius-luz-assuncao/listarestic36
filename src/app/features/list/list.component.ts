@@ -107,6 +107,19 @@ export class ListComponent {
         }
       });
   }
-
+  
+  onToggle(product: Product) {
+    product.done = !product.done;
+    this.productsService.updateProduct(product).subscribe(() => {
+      this.matSnackBar.open(
+        `Item marcado como ${product.done ? 'comprado' : 'a comprar'}`,
+        'ok'
+      );
+    });
+  }
  
 }
+
+
+
+

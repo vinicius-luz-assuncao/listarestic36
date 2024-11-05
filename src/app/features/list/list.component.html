@@ -1,20 +1,28 @@
-<div *ngIf="auth.isAuthenticated$ | async; else notLoggedIn" >
+<div *ngIf="auth.isAuthenticated$ | async; else notLoggedIn">
   <h3>itens a comprar</h3>
   <div class="action-container">
     <a mat-icon-button aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
   </div>
-  
-  <div *ngFor="let product of products; ">
-    <app-card [product]="product" (edit)="onEdit(product)" (delete)="onDelete(product)"></app-card>
+
+  <div *ngFor="let product of products" >
+    <app-card *ngIf="!product.done"
+    [product]="product" 
+    (edit)="onEdit(product)" 
+    (delete)="onDelete(product)"
+    (toggle)="onToggle(product)" ></app-card>
   </div>
-  
+
   <h3>itens comprados</h3>
- 
-  <div *ngFor="let product of products; ">
-    <app-card [product]="product" (edit)="onEdit(product)" (delete)="onDelete(product)"></app-card>
+
+  <div *ngFor="let product of products" >
+    <app-card *ngIf="product.done"
+    [product]="product" 
+    (edit)="onEdit(product)" 
+    (delete)="onDelete(product)"
+    (toggle)="onToggle(product)" ></app-card>
   </div>
 
 </div>
 <ng-template #notLoggedIn>
-      <p>Por favor, faça login para acessar a aplicação.</p>
-    </ng-template>
+  <p>Por favor, faça login para acessar a aplicação.</p>
+</ng-template>

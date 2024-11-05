@@ -24,6 +24,10 @@ export class ProductsService {
     );
   }
 
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`/api/products/${product.id}`, product);
+  }
+
   httpClient = inject(HttpClient);
     
  
