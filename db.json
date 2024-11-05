@@ -26,35 +26,7 @@
     }
   ],
   "products": [
-    {
-      "id": "1",
-      "title": "Produto 1",
-      "amount": 1,
-      "userEmail": "vinicius.luz.foto@gmail.com",
-      "done": false
-    },
-    {
-      "id": "dead",
-      "title": "amor",
-      "amount": 2,
-      "done": false,
-      "userEmail": ""
-    },
-    {
-      "id": "541c",
-      "title": "ahh",
-      "amount": 2,
-      "done": false,
-      "userEmail": ""
-    },
-    {
-      "id": "afd0",
-      "title": "agora vai",
-      "amount": 2,
-      "done": false,
-      "userEmail": "vinicius.luz.foto@gmail.com"
-    },
-    {
+        {
       "id": "214a",
       "title": "maçã",
       "amount": 3,
@@ -62,11 +34,25 @@
       "userEmail": "vinicius.luz.wow@gmail.com"
     },
     {
-      "id": "84b5",
-      "title": "user 01",
-      "amount": 20,
+      "id": "1e9b",
+      "title": "etc",
+      "amount": 2,
       "done": false,
       "userEmail": "vinicius.luz.foto@gmail.com"
+    },
+    {
+      "id": "4662",
+      "title": "uva",
+      "amount": 2,
+      "done": false,
+      "userEmail": "vinicius.luz.wow@gmail.com"
+    },
+    {
+      "id": "a5a7",
+      "title": "coca-cola",
+      "amount": 2,
+      "done": false,
+      "userEmail": "vinicius.luz.wow@gmail.com"
     }
   ]
 }

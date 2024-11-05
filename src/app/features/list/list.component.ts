@@ -1,10 +1,4 @@
-import {
-  Component,
-  computed,
-  inject,
-  input,
-  TrackByFunction,
-} from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.interface';
 import { CardComponent } from './components/card/card.component';
@@ -70,8 +64,6 @@ export class ListComponent {
     private matSnackBar: MatSnackBar
   ) {}
 
-
-
   //refatorado
   // ngOnInit() {
   //   this.productsService.getAll().subscribe((products) => {
@@ -80,24 +72,26 @@ export class ListComponent {
   // }
 
   ngOnInit() {
-    this.productsService.getAll().subscribe((data) => {
+    this.productsService.getAllByUser('userEmail').subscribe((data) => {
       this.products = data;
     });
-  
-    this.authService.user$.subscribe(user => {
+
+    this.authService.user$.subscribe((user) => {
       if (user?.sub && user.email && user.name) {
-        this.userEmail = user.email; 
-        this.usersService.getOrCreateUser(user.sub, user.email, user.name).subscribe(dbUser => {
-          this.productsService.getAllByUser(dbUser['userEmail']).subscribe((products: Product[]) => {
-            this.products = products;
+        this.userEmail = user.email;
+        this.usersService
+          .getOrCreateUser(user.sub, user.email, user.name)
+          .subscribe((dbUser) => {
+            this.productsService
+              .getAllByUser(dbUser['userEmail'])
+              .subscribe((products: Product[]) => {
+                this.products = products;
+              });
           });
-        });
       }
     });
   }
 
-
-  
   onEdit(product: Product) {
     this.router.navigate(['/edit-product', product.id]);
   }
