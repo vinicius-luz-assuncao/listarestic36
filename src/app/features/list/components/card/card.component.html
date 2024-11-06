@@ -2,7 +2,7 @@
         <mat-card appearance="outlined" >
           <mat-card-header>
             
-            <mat-checkbox [(ngModel)]="checked"
+            <mat-checkbox [(ngModel)]="product().done"
               (change)="onToggle()"><mat-card-title class="item">{{ product().title }}</mat-card-title></mat-checkbox>
           </mat-card-header>
           <mat-card-actions>
