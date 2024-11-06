@@ -1,17 +1,20 @@
 <div>
-        <mat-card appearance="outlined">
+        <mat-card appearance="outlined" >
           <mat-card-header>
-            <mat-card-title class="item">{{ product().title }}</mat-card-title>
+            
+            <mat-checkbox [(ngModel)]="checked"
+              (change)="onToggle()"><mat-card-title class="item">{{ product().title }}</mat-card-title></mat-checkbox>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-icon-button><mat-icon aria-hidden="false" aria-label="-" fontIcon="remove"></mat-icon></button>
-            <button mat-icon-button><mat-icon aria-hidden="false" aria-label="+" fontIcon="add"></mat-icon></button>
+            <!-- <button mat-icon-button><mat-icon aria-hidden="false" aria-label="-" fontIcon="remove"></mat-icon></button>
+            <button mat-icon-button><mat-icon aria-hidden="false" aria-label="+" fontIcon="add"></mat-icon></button> -->
             <mat-card-content>quantidade: {{ product().amount }}</mat-card-content>
             <button mat-button (click)="onEdit()"><mat-icon aria-hidden="false" aria-label="Editar" fontIcon="edit"></mat-icon></button>
             <button mat-button (click)="onDelete()"><mat-icon aria-hidden="false" aria-label="Deletar" fontIcon="delete"></mat-icon></button>
-            <button (click)="onToggle()">
-              
-            </button>
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+              <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox>
+            </section>
           </mat-card-actions>
         </mat-card>
       </div>
