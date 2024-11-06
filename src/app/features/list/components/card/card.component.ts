@@ -55,7 +55,9 @@ onDelete() {
 }
 
 onToggle() {
+  setTimeout(() => {
   this.toggle.emit(); 
+}, 500); // 500ms = meio segundo
 }
 
 }
