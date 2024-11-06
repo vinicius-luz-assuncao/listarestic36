@@ -5,6 +5,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from "./shared/components/login/login.component";
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

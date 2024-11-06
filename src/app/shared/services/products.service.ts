@@ -12,6 +12,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class ProductsService {
        
   private apiUrl = 'http://localhost:3000/products';
+  // private apiUrl = 'http://192.168.1.7:3000/products';
 
   constructor(private http: HttpClient, private auth: AuthService) {}
   getAllByUser(userEmail: string): Observable<Product[]> {
@@ -30,7 +31,7 @@ export class ProductsService {
 
   httpClient = inject(HttpClient);
     
- 
+ // pretendo deletar
   get(id: string) {
     return this.httpClient.get<Product>(`/api/products/${id}`);
       

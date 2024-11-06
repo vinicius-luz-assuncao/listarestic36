@@ -10,6 +10,8 @@ import { User } from '@auth0/auth0-angular';
 })
 export class UsersService {
   private apiUrl = 'http://localhost:3000/users';
+  // private apiUrl = 'http://192.168.1.7:3000/users';
+
 
   constructor(private http: HttpClient) {}
 
