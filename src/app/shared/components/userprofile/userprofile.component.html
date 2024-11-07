@@ -1,19 +1,24 @@
-<p>profile works</p>
-
-@if(profile){
-
-    <img [src]="profile.picture" alt="{{ profile.name }}" />
-   
-    <p><strong>Nome:</strong> {{ profile.name }}</p>
-   
-   
-    <p>
-   
-   
-      <strong>Email:</strong>
-   
-   
-      {{ profile.email }}
-   
-   
-    </p>}
+<div class="container">
+  @if(profile){
+  <div  class="card" style="width: 18rem;" >
+  
+        <img class="card-img-top" [src]="profile.picture" alt="{{ profile.name }}" />
+        <div class="card-body">
+        <p><strong>Nome:</strong> {{ profile.name }}</p>
+  
+  
+        <p>
+  
+          <strong>Email:</strong>
+  
+  
+          {{ profile.email }}
+  
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  
+  </div>
+  
+  }
+</div>

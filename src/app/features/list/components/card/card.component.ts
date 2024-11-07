@@ -9,12 +9,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 
 
-export interface Task {
- 
- 
-  done:false
 
-}
 
 @Component({
   selector: 'app-card',
@@ -26,8 +21,6 @@ export interface Task {
 })
 export class CardComponent {
 
- 
-
   readonly checked = model(false);
   readonly indeterminate = model(false);
   readonly labelPosition = model<'before' | 'after'>('after');
@@ -38,7 +31,7 @@ export class CardComponent {
   // @Input({ required: true }) product!: Product;
   @Output() edit = new EventEmitter();
   @Output() delete = new EventEmitter<void>();  
-  @Output() toggle = new EventEmitter<void>();
+  @Output() checkbox = new EventEmitter<void>();
   
   
 
@@ -47,17 +40,20 @@ productAmount = computed(() => this.product().amount);
 
 
 onEdit() {
+  setTimeout(() => {
   this.edit.emit();
-}
+}, 500); }
 
 onDelete() {
+  setTimeout(() => {
   this.delete.emit(); 
+}, 500); 
 }
 
-onToggle() {
+onCheckbox() {
   setTimeout(() => {
-  this.toggle.emit(); 
-}, 500); // 500ms = meio segundo
+  this.checkbox.emit(); 
+}, 500); 
 }
 
 }

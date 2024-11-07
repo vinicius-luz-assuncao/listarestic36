@@ -48,18 +48,11 @@
       "userEmail": "vinicius.luz.wow@gmail.com"
     },
     {
-      "id": "4c76",
-      "title": "item 01",
-      "amount": 20,
-      "done": false,
-      "userEmail": "vinicius.luz.foto@gmail.com"
-    },
-    {
-      "id": "e185",
       "title": "maças",
       "amount": 3,
-      "done": true,
-      "userEmail": "vinicius.luz.foto@gmail.com"
+      "done": false,
+      "userEmail": "vinicius.luz.foto@gmail.com",
+      "id": "e185"
     },
     {
       "title": "item 06",

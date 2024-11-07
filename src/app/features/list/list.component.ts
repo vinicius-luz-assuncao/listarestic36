@@ -10,9 +10,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
   CdkDrag,
   CdkDropList,
   CdkDropListGroup,
@@ -70,6 +67,7 @@ export class ListComponent {
   ) {}
 
   ngOnInit() {
+    setTimeout(() => {
     this.productsService.getAllByUser('userEmail').subscribe((data) => {
       this.products = data;
     });    this.authService.user$.subscribe((user) => {
@@ -86,13 +84,15 @@ export class ListComponent {
           });
       }
     });
-  }
+  }, 500); }
 
   onEdit(product: Product) {
+    setTimeout(() => {
     this.router.navigate(['/edit-product', product.id]);
-  }
+  }, 500); }
 
   onDelete(product: Product) {
+    setTimeout(() => {
     this.matDialog
       .open(ConfirmationDialogComponent)
       .afterClosed()
@@ -100,23 +100,25 @@ export class ListComponent {
         if (result) {
           this.productsService.delete(product.id).subscribe(() => {
             this.products = this.products.filter((p) => p.id !== product.id);
-            this.matSnackBar.open('🛒 Item deletado', 'ok');
+            this.matSnackBar.open('🗑️ Item deletado', 'ok');
           });
         } else {
-          this.matSnackBar.open('🛒 Item mantido', 'ok');
+          this.matSnackBar.open('📝 Item mantido', 'ok');
         }
       });
-  }
+  }, 500); }
   
-  onToggle(product: Product) {
+  onCheckbox(product: Product) {
+    setTimeout(() => {
     product.done = !product.done;
     this.productsService.updateProduct(product).subscribe(() => {
       this.matSnackBar.open(
-        `Item marcado como ${product.done ? 'comprado' : 'a comprar'}`,
+        `   ${product.done ? '✅ Item marcado como comprado' : '🛒 Item marcado como a comprar'}`,
         'ok'
       );
     });
-  }
+  }, 500);
+}
  
 }
 
