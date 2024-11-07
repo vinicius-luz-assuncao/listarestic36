@@ -1,35 +1,18 @@
 <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
     <div class="bg-dark p-4">
-      <h5 class="text-body-emphasis h4">Collapsed content</h5>
+      <app-userprofile></app-userprofile>
       <span class="text-body-secondary">Toggleable via the navbar brand.</span>
     </div>
   </div>
+  
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div>
+        <app-login></app-login>
+      </div>
     </div>
   </nav>
-
-
-
-    <div class="container">
-        <div class="content-container">
-            <div class="title">
-                <h1>Lista de Compras</h1>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-<!-- 
-<mat-grid-list cols="4" rowHeight="100px">
-    @for (tile of tiles; track "tile") {
-    <mat-grid-tile [colspan]="tile.cols" [rowspan]="tile.rows"
-        [style.background]="tile.color">{{tile.text}}</mat-grid-tile>
-    }
-</mat-grid-list> -->
+  
