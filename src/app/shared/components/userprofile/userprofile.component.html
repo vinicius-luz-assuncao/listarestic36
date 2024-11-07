@@ -1,24 +1,20 @@
-<div class="container">
+<div class="container mt-5 ">
   @if(profile){
-  <div  class="card" style="width: 18rem;" >
-  
-        <img class="card-img-top" [src]="profile.picture" alt="{{ profile.name }}" />
-        <div class="card-body">
-        <p><strong>Nome:</strong> {{ profile.name }}</p>
-  
-  
-        <p>
-  
-          <strong>Email:</strong>
-  
-  
-          {{ profile.email }}
-  
-        </p>
-      
-      </div>
-  
+  <div class="card bg-light text-dark" style="width: 12rem">
+
+    <img class="card-img-top rounded-circle mx-auto img-fluid d-block w-50 my-2 shadow img-stroke" [src]="profile.picture" alt="{{ profile.name }}" />
+    <div class="card-body text-center">
+      <h5 class="fs-3" >{{ profile.name }} </h5>
+
+      <p class="fs-6">
+        Email:
+        {{ profile.email }}
+
+      </p>
+
+    </div>
+
   </div>
-  
+
   }
 </div>
