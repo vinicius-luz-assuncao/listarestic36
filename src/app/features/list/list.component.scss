@@ -2,8 +2,6 @@
     padding: 8px;
 }
 
-
-
 .example-container {
     width: 400px;
     max-width: 100%;
@@ -23,7 +21,7 @@
   
   .example-box {
     padding: 20px 10px;
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px #cccccc;
     color: rgba(0, 0, 0, 0.87);
     display: flex;
     flex-direction: row;
@@ -31,7 +29,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     cursor: move;
-    background: white;
+    background: rgb(255, 255, 255);
     font-size: 14px;
   }
   

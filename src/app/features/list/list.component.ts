@@ -16,6 +16,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { AuthService } from '@auth0/auth0-angular';
 import { UsersService } from '../../shared/services/user.service';
+import { LoginComponent } from "../../shared/components/login/login.component";
 
 
 
@@ -45,7 +46,8 @@ export class ConfirmationDialogComponent {}
     CdkDropList,
     CdkDrag,
     CdkDropListGroup,
-  ],
+    LoginComponent
+],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })

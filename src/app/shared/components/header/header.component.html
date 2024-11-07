@@ -9,9 +9,10 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="align-items-center my-2 "><h3 class="fs-2 text-light" >Lista de Compras</h3></div>
+      @if(profile){
+        <div class="align-items-center my-2 "><p class="fs-2 text-light" > <small>Lista de Compras de {{ profile.name }} </small></p></div>
       <div>
         <app-login></app-login>
-      </div>
+      </div>}
     </div>
   </nav>

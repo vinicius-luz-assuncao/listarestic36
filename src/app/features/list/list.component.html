@@ -1,7 +1,12 @@
 <div *ngIf="auth.isAuthenticated$ | async; else notLoggedIn">
-  <h3>itens a comprar</h3>
-  <div class="action-container">
-    <a mat-icon-button aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
+  <div class="action-container d-flex align-items-start">
+  
+    <a class="mt-1" mat-icon-button aria-label="Adicione" [routerLink]="['/create-product']"><mat-icon>add_circle</mat-icon></a>
+    <h5>acrescentar itens na lista</h5>
+  </div>
+
+  <div class="align-items-center my-2">
+    <h5 >Falta comprar</h5>
   </div>
 
   <div *ngFor="let product of products" >
@@ -12,7 +17,9 @@
     (checkbox)="onCheckbox(product)" ></app-card>
   </div>
 
-  <h3>itens comprados</h3>
+  <div class="align-items-center my-2">
+    <h5  >Falta comprar</h5>
+  </div>
 
   <div *ngFor="let product of products" >
     <app-card *ngIf="product.done"
@@ -24,5 +31,11 @@
 
 </div>
 <ng-template #notLoggedIn>
-  <p>Por favor, faça login para acessar a aplicação.</p>
+  <div class="alert alert-info text-center p-4 mt-3">
+    <h4 class="alert-heading">Bem-vindo!</h4>
+    <p class="mb-0">Faça login para acessar sua lista de compras.</p>
+    
+    <app-login ></app-login>
+  </div>
+  
 </ng-template>
